@@ -1,0 +1,39 @@
+CONFIG_NAME: 'bird_sloss01'
+
+DATASET_NAME: 'birds'
+DATA_DIR: './data/birds'
+GPU_ID: 0
+WORKERS: 1
+
+
+B_VALIDATION: False # True  # False
+RESTORE: False
+loss: 'hinge'
+
+TREE:
+    BRANCH_NUM: 1
+    BASE_SIZE: 256
+
+
+TRAIN:
+    NF: 64 # default 64
+    BATCH_SIZE: 8 #24
+    MAX_EPOCH: 600
+    NET_G: '' #'/home/g02f/text2image/tmp/bird_sloss01/64/models/netG_600.pth' # when validation, put the path of the trained model here
+    WARMUP_EPOCHS: 100
+    GSAVE_INTERVAL: 10
+    DSAVE_INTERVAL: 10
+
+CAP:
+    embed_size: 256
+    hidden_size: 256
+    num_layers: 1
+    learning_rate: 0.001
+    caption_cnn_path: '/home/g02f/text2image_recaption/pretrained_model/encoder-5-3000.pkl'
+    caption_rnn_path: '/home/g02f/text2image_recaption/pretrained_model/decoder-5-3000.pkl'
+
+TEXT:
+    EMBEDDING_DIM: 256
+    CAPTIONS_PER_IMAGE: 10
+    DAMSM_NAME: '/home/g02f/text2image/DAMSMencoders/bird/text_encoder200.pth'
+
